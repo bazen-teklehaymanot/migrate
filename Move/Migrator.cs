@@ -45,6 +45,8 @@ namespace Move
             int index = 0;
             foreach (var task in tasks)
             {
+                if (newDbContext.Tasks.Find(task.TaskId) is not null)
+                    continue;
                 var tda = oldDbContext.TaskDependecyAssociations.FirstOrDefault(entry => entry.LeftId == task.TaskId);
                 var task_date = oldDbContext.TaskDates.FirstOrDefault(entry => entry.TaskId == task.TaskId);
                 var task_hour = oldDbContext.TaskHours.FirstOrDefault(entry => entry.TaskId == task.TaskId);
