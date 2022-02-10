@@ -31,6 +31,7 @@ class Migrator
             Console.WriteLine("Unable to connect to source database, please check connection string is correct");
             return 1;
         }
+        newDbContext.Database.EnsureCreated();
         canConnect = await newDbContext.Database.CanConnectAsync();
         if (!canConnect)
         {
