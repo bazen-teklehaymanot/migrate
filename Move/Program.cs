@@ -1,11 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Extensions.CommandLineUtils;
-using Migrate;
-using Migrate.PostgreSQL;
-using Migrate.SQLite;
+using Move.PostgreSQL;
+using Move.SQLite;
 using System;
 
-namespace Migrate
+namespace Move
 {
     internal class Program
     {

@@ -1,7 +1,7 @@
 ﻿
-using Migrate.SQLite;
+using Move.SQLite;
 
-namespace Migrate.Bridges
+namespace Move.Bridges
 {
     public class TaskBridge
     {

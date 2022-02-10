@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Migrate.SQLite;
+using Move.SQLite;
 
-namespace Migrate.Bridges
+namespace Move.Bridges
 {
     public class TaskResourceBridge
     {

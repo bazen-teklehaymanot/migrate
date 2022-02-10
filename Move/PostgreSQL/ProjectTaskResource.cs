@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using Migrate.Bridges;
+using Move.Bridges;
 
 #nullable disable
 
-namespace Migrate.PostgreSQL
+namespace Move.PostgreSQL
 {
     public partial class ProjectTaskResource
     {
         public long? TaskResourceTaskId { get; set; }
         public long? TaskResourceResourceId { get; set; }
         public long? TaskResourceLevel { get; set; }
-        public long? TaskResourceHour { get; set; }
+        public double? TaskResourceHour { get; set; }
 
         public virtual Task TaskResourceTask { get; set; }
 
-        public static implicit operator ProjectTaskResource(TaskResourceBridge bridge) 
+        public static implicit operator ProjectTaskResource(TaskResourceBridge bridge)
         {
-            var entity = new ProjectTaskResource 
+            var entity = new ProjectTaskResource
             {
                 TaskResourceTaskId = bridge.TaskResource?.TaskResourceTaskId,
                 TaskResourceResourceId = bridge.TaskResource?.TaskResourceResourceId,
@@ -27,7 +27,7 @@ namespace Migrate.PostgreSQL
             {
                 entity.TaskResourceHour = bridge.TaskHourBudget * (bridge.TaskResource.TaskResourceLevel / bridge.SumOfResourceLevel);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error setting TaskResourceId {ex.Message}");
             }

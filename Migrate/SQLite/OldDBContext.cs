@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Migrate.SQLite
+namespace Move.SQLite
 {
     public partial class OldDBContext : DbContext
     {

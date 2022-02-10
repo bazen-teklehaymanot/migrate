@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Migrate.Bridges;
-using Migrate.PostgreSQL;
-using Migrate.SQLite;
+using Move.Bridges;
+using Move.PostgreSQL;
+using Move.SQLite;
 
-namespace Migrate
+namespace Move
 {
     class Migrator
     {

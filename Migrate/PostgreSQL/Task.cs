@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Migrate.Bridges;
+using Move.Bridges;
 
 #nullable disable
 
-namespace Migrate.PostgreSQL
+namespace Move.PostgreSQL
 {
     public partial class Task
     {

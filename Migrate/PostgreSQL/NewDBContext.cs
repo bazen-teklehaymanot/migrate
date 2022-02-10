@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Migrate.PostgreSQL
+namespace Move.PostgreSQL
 {
     public partial class NewDBContext : DbContext
     {

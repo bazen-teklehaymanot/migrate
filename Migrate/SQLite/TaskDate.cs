@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Migrate.SQLite
+namespace Move.SQLite
 {
     public partial class TaskDate
     {
