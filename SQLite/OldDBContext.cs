@@ -24,7 +24,7 @@ namespace Migrate.SQLite
 
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<TaskDate> TaskDates { get; set; }
-        public virtual DbSet<TaskDependencyAssociation> TaskDependencyAssociations { get; set; }
+        public virtual DbSet<TaskDependecyAssociation> TaskDependecyAssociations { get; set; }
         public virtual DbSet<TaskHour> TaskHours { get; set; }
         public virtual DbSet<TaskResource> TaskResources { get; set; }
 
@@ -85,11 +85,11 @@ namespace Migrate.SQLite
                     .HasForeignKey(d => d.TaskId);
             });
 
-            modelBuilder.Entity<TaskDependencyAssociation>(entity =>
+            modelBuilder.Entity<TaskDependecyAssociation>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("task_dependency_association");
+                entity.ToTable("task_dependecy_association");
 
                 entity.Property(e => e.LeftId).HasColumnName("left_id");
 

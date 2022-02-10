@@ -45,7 +45,7 @@ class Migrator
         int index = 0;
         foreach (var task in tasks) 
         {
-            var tda = oldDbContext.TaskDependencyAssociations.FirstOrDefault(entry => entry.LeftId == task.TaskId);
+            var tda = oldDbContext.TaskDependecyAssociations.FirstOrDefault(entry => entry.LeftId == task.TaskId);
             var task_date = oldDbContext.TaskDates.FirstOrDefault(entry => entry.TaskId == task.TaskId);
             var task_hour = oldDbContext.TaskHours.FirstOrDefault(entry => entry.TaskId == task.TaskId);
             newDbContext.Tasks.Add(new TaskBridge(task, tda, task_date, task_hour));
