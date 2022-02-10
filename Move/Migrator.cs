@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Move.Bridges;
 using Move.PostgreSQL;
 using Move.SQLite;
@@ -62,13 +63,20 @@ namespace Move
             foreach (var tr in task_resources)
             {
                 var hour_budget = newDbContext.Tasks.FirstOrDefault(entry => entry.Id == tr.TaskResourceTaskId)?.TaskHourBudget;
-                newDbContext.ProjectTaskResources.Add(new TaskResourceBridge(tr, task_resource_level_sum, hour_budget));
+                ProjectTaskResource entity = new TaskResourceBridge(tr, task_resource_level_sum, hour_budget);
+                newDbContext.Database.ExecuteSqlRaw($"INSERT INTO public.project_task_resource " +
+                    $"(task_resource_hour, task_resource_level, task_resource_resource_id, task_resource_task_id) VALUES({0}, {1}, {2},{3})",
+                    entity.TaskResourceHour,
+                    entity.TaskResourceLevel,
+                    entity.TaskResourceResourceId,
+                    entity.TaskResourceTaskId);
                 index += 1;
                 Console.WriteLine($"{index} task resource migrated");
+                //await newDbContext.SaveChangesAsync();
             }
-            await newDbContext.SaveChangesAsync();
             Console.WriteLine("Migration completed!");
             return 0;
         }
+
     }
 }

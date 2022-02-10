@@ -29,14 +29,15 @@ namespace Move.PostgreSQL
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(_datasource);
+                optionsBuilder.UseNpgsql(_datasource)
+                              .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProjectTaskResource>(entity =>
-            {
+            {   
                 entity.HasNoKey();
 
                 entity.ToTable("project_task_resource");
@@ -45,7 +46,8 @@ namespace Move.PostgreSQL
 
                 entity.Property(e => e.TaskResourceLevel).HasColumnName("task_resource_level");
 
-                entity.Property(e => e.TaskResourceResourceId).HasColumnName("task_resource_resource_id");
+                entity.Property(e => e.TaskResourceResourceId)
+                      .HasColumnName("task_resource_resource_id");
 
                 entity.Property(e => e.TaskResourceTaskId).HasColumnName("task_resource_task_id");
 

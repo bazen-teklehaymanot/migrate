@@ -8,6 +8,7 @@ namespace Move.PostgreSQL
 {
     public partial class ProjectTaskResource
     {
+        //public long Id { get; set; }
         public long? TaskResourceTaskId { get; set; }
         public long? TaskResourceResourceId { get; set; }
         public long? TaskResourceLevel { get; set; }
