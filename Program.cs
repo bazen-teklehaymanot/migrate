@@ -14,7 +14,7 @@ app.Command("db", cmd =>
     cmd.HelpOption("-?|-h|--help");
     cmd.Description = "Migrates SQLite DB entries into PostgresSQL";
     var sourceOpt = cmd.Option("-s|--source",
-                                                   "Connection string to source SQLite database",
+                                                   "Path to source SQLite database",
                                                    CommandOptionType.SingleValue);
     var targetOpt = cmd.Option("-t|--target",
                                       "Connection string to destination connection string. eg) \"Host = <host>; Database = <database>; Username = <user>; Password = <password>\"",
